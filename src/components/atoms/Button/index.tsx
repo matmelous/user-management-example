@@ -10,4 +10,4 @@ const Button = ( props:PropsType)=>{
 
 }
 
-export default Button;
+export default React.memo(Button)

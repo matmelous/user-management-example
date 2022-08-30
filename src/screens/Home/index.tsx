@@ -1,12 +1,11 @@
 import React from "react";
+import Page from "../../components/atoms/Page";
 import LoginForm from "../../components/molecules/LoginForm";
-import styles from  "./Home.module.scss";
 
 const Home = ()=>{
-    return (<div className={styles.home}>
-        <p>Please insert your credentials</p>
+    return (<Page>
         <LoginForm />
-    </div>)
+    </Page>)
 }
 
 export default React.memo(Home);

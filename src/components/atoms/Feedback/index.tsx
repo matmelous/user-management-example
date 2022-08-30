@@ -15,4 +15,4 @@ const FeedBack = ({children,visible}:PropsType)=>{
     </p>)
 }
 
-export default FeedBack
+export default React.memo(FeedBack)

@@ -7,15 +7,17 @@ import FeedBack from "../../atoms/Feedback";
 import Input from "../../atoms/Input";
 import styles from "./LoginForm.module.scss";
 
+const formValidate=(name:string,password:string)=>{
+    return (name && name!=="" && password && password!== "");
+}
+
 const LoginForm = ()=>{
     const dispatch = useDispatch();
     const {authenticate} = useAuthenticate();
     const [feedbackMessage,setFeedbackMessage] = React.useState("")
     const name = React.useRef<HTMLInputElement>(null)
     const password = React.useRef<HTMLInputElement>(null)
-    const formValidate=(name:string,password:string)=>{
-        return (name && name!=="" && password && password!== "");
-    }
+   
     const handleSubmit = (event:React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault()
         if(formValidate(name.current!.value, password.current!.value)){
@@ -31,12 +33,13 @@ const LoginForm = ()=>{
     }
 
     return (<form className={styles.wrapper} onSubmit={handleSubmit}>
-        <Input type="text" ref={name} />
-        <Input type="password"  ref={password} />
-        <Button type="submit" >Submit</Button>
+        <p>Please insert your credentials</p>
+        <Input type="text" label="Nome" ref={name} />
+        <Input type="password" label="Senha" ref={password} />
+        <Button type="submit" >Cadastrar Usuário</Button>
         <FeedBack visible={!!feedbackMessage} >{feedbackMessage}</FeedBack>
     </form>)
 }
 
 
-export default LoginForm;
+export default React.memo(LoginForm);

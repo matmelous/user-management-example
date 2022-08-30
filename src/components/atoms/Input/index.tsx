@@ -1,12 +1,17 @@
 import React from "react";
 
-interface PropsType extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>{
+import styles from "./Input.module.scss";
 
+interface PropsType extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>{
+    label: string,
 }
 
-const Input = React.forwardRef(( props:PropsType,ref:React.LegacyRef<HTMLInputElement> | undefined)=>{
+const Input = React.forwardRef(( {label, ...props}:PropsType,ref:React.LegacyRef<HTMLInputElement> | undefined)=>{
 
-    return <input ref={ref} {...props} />;
+    return <div className={styles.wrapper}>
+        <p className={styles.label}>{label}</p>
+        <input ref={ref} {...props} />
+        </div>;
 
 })
 
