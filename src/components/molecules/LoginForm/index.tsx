@@ -1,14 +1,40 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import useAuthenticate from "../../../hooks/useAuthenticate";
+import { actions } from "../../../state/users";
 import Button from "../../atoms/Button";
+import FeedBack from "../../atoms/Feedback";
 import Input from "../../atoms/Input";
 import styles from "./LoginForm.module.scss";
 
 const LoginForm = ()=>{
-    
-    return (<form className={styles.wrapper}>
-        <Input type="text"/>
-        <Input type="password" />
+    const dispatch = useDispatch();
+    const {authenticate} = useAuthenticate();
+    const [feedbackMessage,setFeedbackMessage] = React.useState("")
+    const name = React.useRef<HTMLInputElement>(null)
+    const password = React.useRef<HTMLInputElement>(null)
+    const formValidate=(name:string,password:string)=>{
+        return (name && name!=="" && password && password!== "");
+    }
+    const handleSubmit = (event:React.FormEvent<HTMLFormElement>) =>{
+        event.preventDefault()
+        if(formValidate(name.current!.value, password.current!.value)){
+            const user = authenticate(name.current!.value,password.current!.value)
+            if(!!user){
+                setFeedbackMessage('Welcome!!')
+                dispatch(actions.authenticate(user.id))
+            }else{
+                setFeedbackMessage('User not found')
+            }
+
+        }
+    }
+
+    return (<form className={styles.wrapper} onSubmit={handleSubmit}>
+        <Input type="text" ref={name} />
+        <Input type="password"  ref={password} />
         <Button type="submit" >Submit</Button>
+        <FeedBack visible={!!feedbackMessage} >{feedbackMessage}</FeedBack>
     </form>)
 }
 

@@ -4,10 +4,10 @@ interface PropsType extends React.DetailedHTMLProps<React.InputHTMLAttributes<HT
 
 }
 
-const Input = ( props:PropsType)=>{
+const Input = React.forwardRef(( props:PropsType,ref:React.LegacyRef<HTMLInputElement> | undefined)=>{
 
-    return <input {...props} />;
+    return <input ref={ref} {...props} />;
 
-}
+})
 
-export default Input;
+export default React.memo(Input);
