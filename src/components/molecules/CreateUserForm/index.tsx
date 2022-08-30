@@ -16,7 +16,7 @@ const CreateUsersForm = ()=>{
     }
 
     return (<form className={styles.wrapper} onSubmit={handleSubmit}>
-        <p>Create a new user</p>
+        <p>Criar um novo usuário.</p>
         <Input type="text" label="Nome" ref={name} />
         <Input type="password" label="Senha" ref={password} />
         <Input type="password" label="Confirmar senha" ref={repeatPassword} />

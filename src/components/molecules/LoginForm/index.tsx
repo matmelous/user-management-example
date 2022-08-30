@@ -23,17 +23,19 @@ const LoginForm = ()=>{
         if(formValidate(name.current!.value, password.current!.value)){
             const user = authenticate(name.current!.value,password.current!.value)
             if(!!user){
-                setFeedbackMessage('Welcome!!')
+                setFeedbackMessage(`Bem vindo ${user.name}!!`)
                 dispatch(actions.authenticate(user.id))
             }else{
-                setFeedbackMessage('User not found')
+                setFeedbackMessage('Usuario não encontrado!')
             }
 
+        }else{
+            setFeedbackMessage('Por favor preencha todos os campos!')
         }
     }
 
     return (<form className={styles.wrapper} onSubmit={handleSubmit}>
-        <p>Please insert your credentials</p>
+        <p>Preencha suas credenciais para prosseguir!</p>
         <Input type="text" label="Nome" ref={name} />
         <Input type="password" label="Senha" ref={password} />
         <Button type="submit" >Cadastrar Usuário</Button>
