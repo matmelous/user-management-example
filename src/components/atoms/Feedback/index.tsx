@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from './FeedBack.module.scss'
+import styles from "./FeedBack.module.scss"
 
 interface PropsType{
     children:React.ReactElement | string,

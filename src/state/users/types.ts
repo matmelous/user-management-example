@@ -1,7 +1,9 @@
-export interface UserType{
-    id: string,
+export interface BasicUserType{
     name: string,
     password: string,
+}
+export interface UserType extends BasicUserType{
+    id: string,
 }
 
 export interface usersSlice{

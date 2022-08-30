@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./Button.module.scss";
 
 interface PropsType extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>{
 
@@ -6,7 +7,7 @@ interface PropsType extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<H
 
 const Button = ( props:PropsType)=>{
 
-    return <button {...props} />;
+    return <button className={styles.button} {...props} />;
 
 }
 
