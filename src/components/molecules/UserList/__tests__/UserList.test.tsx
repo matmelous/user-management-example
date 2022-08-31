@@ -11,6 +11,8 @@ it("Renders user list", () => {
     </Provider>
   );
 
-  expect(screen.getByText(/Usuarios cadastrados atualmente/i)).toBeInTheDocument();
+  expect(
+    screen.getByText(/Usuarios cadastrados atualmente/i)
+  ).toBeInTheDocument();
   expect(screen.getByText(/matheus/i)).toBeInTheDocument();
 });

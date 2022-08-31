@@ -12,7 +12,9 @@ test("Renders home screen", () => {
     </Provider>
   );
 
-  expect(screen.getByText(/Preencha suas credenciais para prosseguir!/i)).toBeInTheDocument();
+  expect(
+    screen.getByText(/Preencha suas credenciais para prosseguir!/i)
+  ).toBeInTheDocument();
 });
 
 test("Renders create user screen", () => {
@@ -21,13 +23,13 @@ test("Renders create user screen", () => {
       <App />
     </Provider>
   );
-  
-  const input:HTMLInputElement = screen.getByLabelText('Nome')
-  input.value = 'matheus'
-  const input2:HTMLInputElement = screen.getByLabelText('Senha')
-  input2.value = '123456'
-  act(()=> {
-      screen.getByText('Cadastrar Usuário').click()
+
+  const input: HTMLInputElement = screen.getByLabelText("Nome");
+  input.value = "matheus";
+  const input2: HTMLInputElement = screen.getByLabelText("Senha");
+  input2.value = "123456";
+  act(() => {
+    screen.getByText("Cadastrar Usuário").click();
   });
 
   expect(screen.getByText(/matheus/i)).toBeInTheDocument();
