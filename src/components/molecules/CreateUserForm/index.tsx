@@ -6,7 +6,7 @@ import Button from "../../atoms/Button";
 import FeedBack from "../../atoms/Feedback";
 import Input from "../../atoms/Input";
 import Title from "../../atoms/Title";
-import styles from "./LoginForm.module.scss";
+import styles from "./CreateUser.module.scss";
 
 const formValidate=(name:string,password:string,repeatPassword:string)=>{
     return (name && name!=="" && password && password!== ""&& repeatPassword && repeatPassword!== "" && password === repeatPassword );
