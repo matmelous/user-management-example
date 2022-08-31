@@ -9,8 +9,10 @@ interface PropsType extends React.DetailedHTMLProps<React.InputHTMLAttributes<HT
 const Input = React.forwardRef(( {label, ...props}:PropsType,ref:React.LegacyRef<HTMLInputElement> | undefined)=>{
 
     return <div className={styles.wrapper}>
-        <p className={styles.label}>{label}</p>
-        <input ref={ref} {...props} />
+            <label className={styles.label}>
+                <span>{label}</span>
+                <input ref={ref} {...props} />
+            </label>
         </div>;
 
 })

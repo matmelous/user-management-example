@@ -26,7 +26,6 @@ const LoginForm = ()=>{
             if(!!user){
                 setFeedbackMessage(`Bem vindo ${user.name}!!`)
                 dispatch(actions.authenticate(user.id))
-                setFeedbackMessage("")
             }else{
                 setFeedbackMessage("Usuario não encontrado!")
             }

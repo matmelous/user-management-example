@@ -1,6 +1,7 @@
 import React from "react";
-import { useAppDispatch } from "../../../state/hooks";
+import { useAppDispatch, useAppSelector } from "../../../state/hooks";
 import { actions } from "../../../state/users";
+import { UserType } from "../../../state/users/types";
 import Button from "../../atoms/Button";
 import FeedBack from "../../atoms/Feedback";
 import Input from "../../atoms/Input";
@@ -10,10 +11,14 @@ import styles from "./LoginForm.module.scss";
 const formValidate=(name:string,password:string,repeatPassword:string)=>{
     return (name && name!=="" && password && password!== ""&& repeatPassword && repeatPassword!== "" && password === repeatPassword );
 }
+const checkIfUserAlreadyExists=(name:string,data:UserType[])=>{
+    return data.find(value => value.name ===name);
+}
 
 
 const CreateUsersForm = ()=>{
     const dispatch = useAppDispatch();
+    const data = useAppSelector(state => state.users.data);
     const [feedbackMessage,setFeedbackMessage] = React.useState("")
     const name = React.useRef<HTMLInputElement>(null)
     const password = React.useRef<HTMLInputElement>(null)
@@ -21,11 +26,17 @@ const CreateUsersForm = ()=>{
 
     const handleSubmit = (event:React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault()
-        if(formValidate(name.current!.value, password.current!.value, repeatPassword.current!.value)){
-            dispatch(actions.createUser({name:name.current!.value, password:password.current!.value}))
-            setFeedbackMessage("")
-        }else{
-            setFeedbackMessage("Preencha todos os campos corretamente!")
+        const nameValue=name.current!.value;
+        const passwordValue=password.current!.value;
+        const repeatPasswordValue=repeatPassword.current!.value;
+
+        if(checkIfUserAlreadyExists(nameValue,data)){
+            setFeedbackMessage("Ja existe um usuario com esse nome!")
+        }else if(formValidate(nameValue, passwordValue, repeatPasswordValue)){
+            dispatch(actions.createUser({name:nameValue, password:passwordValue}))
+            setFeedbackMessage("Usuário adicionado com sucesso!!")
+        }else {
+            setFeedbackMessage("Por favor preencha todos os campos corretamente!")
         }
     }
 
