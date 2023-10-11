@@ -1,6 +1,6 @@
 # Projeto React Redux TypeScript com Atomic Design
 
-Este é um projeto de exemplo que demonstra minhas habilidades como desenvolvedor React. O projeto foi criado com Create React App, incorporando Redux e TypeScript, e segue a arquitetura Atomic Design. O objetivo principal deste projeto é fornecer uma tela de login e um dashboard onde os usuários podem ser listados e novos usuários podem ser cadastrados.
+Este é um projeto de exemplo para o gerenciamento de usuários com redux. O projeto foi criado com Create React App, incorporando Redux e TypeScript, e segue a arquitetura Atomic Design. O objetivo principal deste projeto é fornecer uma tela de login e um dashboard onde os usuários podem ser listados e novos usuários podem ser cadastrados.
 
 ## Tabela de Conteúdos
 
