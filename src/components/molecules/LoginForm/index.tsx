@@ -39,7 +39,7 @@ const LoginForm = () => {
       <Title>Preencha suas credenciais para prosseguir!</Title>
       <Input type="text" label="Nome" ref={name} />
       <Input type="password" label="Senha" ref={password} />
-      <Button type="submit">Cadastrar Usuário</Button>
+      <Button type="submit">Login</Button>
       <FeedBack visible={!!feedbackMessage}>{feedbackMessage}</FeedBack>
     </form>
   );
