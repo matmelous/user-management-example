@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+# Projeto React Redux TypeScript com Atomic Design
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+Este é um projeto de exemplo que demonstra minhas habilidades como desenvolvedor React. O projeto foi criado com Create React App, incorporando Redux e TypeScript, e segue a arquitetura Atomic Design. O objetivo principal deste projeto é fornecer uma tela de login e um dashboard onde os usuários podem ser listados e novos usuários podem ser cadastrados.
 
-## Available Scripts
+## Tabela de Conteúdos
 
-In the project directory, you can run:
+1. [Visão Geral](#visão-geral)
+2. [Tecnologias Utilizadas](#tecnologias-utilizadas)
+3. [Estrutura do Projeto](#estrutura-do-projeto)
+4. [Instalação](#instalação)
+5. [Uso](#uso)
+6. [Capturas de Tela](#capturas-de-tela)
+7. [Licença](#licença)
+
+## Visão Geral
+
+Este projeto é uma aplicação web simples que demonstra a autenticação de usuários e a exibição de um painel de controle. Ele inclui as seguintes funcionalidades:
+
+- Uma tela de login onde os usuários podem autenticar-se.
+- Um dashboard que exibe uma lista de usuários.
+- Um formulário no dashboard para cadastrar novos usuários.
+- Gerenciamento de estado usando Redux para manter os dados da aplicação.
+- Tipagem estática usando TypeScript para melhorar a segurança e a manutenção do código.
+- Uma arquitetura Atomic Design que promove a reutilização de componentes e uma estrutura organizada do projeto.
+
+## Tecnologias Utilizadas
+
+- React
+- Redux
+- TypeScript
+- Create React App
+- Atomic Design
+
+## Estrutura do Projeto
+
+O projeto segue uma estrutura organizada inspirada no Atomic Design:
+
+- **atoms**: Componentes de nível mais baixo, como botões, campos de formulário, etc.
+- **molecules**: Componentes que combinam vários átomos, como um formulário de login.
+- **organisms**: Componentes compostos por várias moléculas, como a tela de login e o painel de controle.
+- **templates**: Layouts gerais para páginas, como a estrutura do painel de controle.
+- **pages**: Páginas específicas da aplicação, como a página de login e o painel de controle.
+
+## Instalação
+
+Siga as etapas abaixo para executar o projeto em sua máquina:
+
+1. Clone este repositório:
+
+
+### `git clone https://github.com/matmelous/user-management-example.git`
+
+2. Navegue até o diretório do projeto:
+### `cd user-management-example`
+
+3. Instale as dependências:
+
+### `yarn`
+
+3. Após a instalação, você pode iniciar o aplicativo usando o seguinte comando:
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A aplicação estará disponível em [http://localhost:3000](http://localhost:3000) .
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Capturas de Tela
 
-### `yarn test`
+![image](https://github.com/matmelous/user-management-example/assets/51704551/26fcc9fc-926c-4fec-9d84-1550242ddc83)
+![image](https://github.com/matmelous/user-management-example/assets/51704551/82b3086f-2a95-4b83-83ae-138fa7aec29f)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Licença
+Este projeto é licenciado sob a MIT License.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
